@@ -1,0 +1,61 @@
+
+<h1>sales team</h1>
+<table border="1">
+<tr>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>email</th>
+    <th>sales volume</th>
+
+</tr>
+<tr *ngFor="let temp of salesPersonList" [ngClass] ="{'metQuote' :temp.salesVolume >=3000,'nonMetQuote' : temp.salesVolume < 3000}">
+    <td>{{temp.firstName}}</td>
+    <td>{{temp.lastName}}</td>
+   <td>{{temp.email}}</td>
+    <td>{{temp.salesVolume}}</td>
+    <td>
+        <div *ngIf="temp.salesVolume>3000; else elseBlock">yes</div>
+        <ng-template #elseBlock>No</ng-template>
+    </td>
+</tr>
+</table>
+
+<form #SPForm="ngForm" (onClick)="onSubmit()">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">FirstName</label>
+	    <div class="col-sm-5">
+			<input type="text" name ="firstName" [(ngModel)]="inputData.firstName">
+	    </div>
+    </div>
+	
+	<div class="form-group row">
+		<label class="col- col-sm-2 col-form-label">LastName</label>
+		<div class="col-sm-5">
+			<input type="text" name = "lastName" [(ngModel)]="inputData.lastName">
+        </div>
+	</div>
+	
+	<div class="form-group row">
+	 <label class="col-sm-2 col-form-label">Email</label>
+	 <div class="col-sm-5">
+		<input type="text" name = "email" [(ngModel)]="inputData.email">
+	 </div>
+	</div>
+	
+	<div class="form-group row">
+	 <label class="col-sm-2 col-form-label">salesVolume</label>
+	 <div class="col-sm-5">
+		<input type="number" name = "salesVolume " [(ngModel)]="inputData.salesVolume">
+	 </div>
+	</div>
+	
+   
+	<div class="form-group row">
+	 <div class="col-sm-2"><button type="submit"> Submit</button></div>
+   
+	 <div class="col-sm-2"> <button type="reset">Reset</button></div>
+     
+     
+	</div>
+	
+ </form>

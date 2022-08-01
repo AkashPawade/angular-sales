@@ -1,0 +1,17 @@
+.metQuote{
+    background-color: darkgreen;
+}
+
+.nonMetQuote{
+    background-color: darkmagenta;
+}
+body{
+    background-color: aqua;
+}
+
+.lowSales{
+    background-color: red;
+}
+.highSales{
+background-color: rgb(213, 220, 213);
+}
